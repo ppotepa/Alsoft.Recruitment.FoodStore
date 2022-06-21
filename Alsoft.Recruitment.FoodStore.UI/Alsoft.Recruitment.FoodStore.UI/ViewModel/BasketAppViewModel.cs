@@ -97,9 +97,7 @@ namespace Alsoft.Recruitment.FoodStore.UI.ViewModel
             response.Products.ToList().ForEach(BasketProducts.Add);
             BasketProducts.SelectMany(x => x.DiscountsApplied).ToList().ForEach(DiscountsApplied.Add);
 
-            BasketTotal = BasketProducts.Aggregate(0m, (sum, current) => sum + current.ItemsPrice);
-            DiscountAmount = BasketProducts.Aggregate(0m, (sum, current) => sum + current.DiscountsApplied.Sum(x => x.Discount));
-            FinalPrice = BasketTotal - DiscountAmount;
+            CalculateTotals();
         }
 
         private void DoRemoveItemFromBasket(BasketProduct? basketProduct)
@@ -109,6 +107,12 @@ namespace Alsoft.Recruitment.FoodStore.UI.ViewModel
 
             basketProduct.DiscountsApplied.ForEach(d => DiscountsApplied.Remove(d));
             BasketProducts.Remove(basketProduct);
+
+            CalculateTotals();
+        }
+
+        void CalculateTotals()
+        {
             BasketTotal = BasketProducts.Aggregate(0m, (sum, current) => sum + current.ItemsPrice);
             DiscountAmount = BasketProducts.Aggregate(0m, (sum, current) => sum + current.DiscountsApplied.Sum(x => x.Discount));
             FinalPrice = BasketTotal - DiscountAmount;
