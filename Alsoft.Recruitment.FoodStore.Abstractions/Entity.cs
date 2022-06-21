@@ -1,6 +1,5 @@
 ﻿using Alsoft.Recruitment.FoodStore.Abstractions.Interfaces;
 using System;
-using System.Diagnostics;
 
 namespace Alsoft.Recruitment.FoodStore.Abstractions
 {
@@ -17,7 +16,6 @@ namespace Alsoft.Recruitment.FoodStore.Abstractions
 
         protected Entity(string id)
         {
-            Debug.WriteLine(this.GetType().Name);
             Guid resultGuid;
             Guid.TryParse(id, out resultGuid);
 

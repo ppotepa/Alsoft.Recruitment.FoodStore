@@ -9,17 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{2783
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.Abstractions", "Alsoft.Recruitment.FoodStore.Abstractions\Alsoft.Recruitment.FoodStore.Abstractions.csproj", "{DF7722C9-CCAA-4847-BB9B-C517D2E1FDDC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.Modules.Basket", "Alsoft.Recruitment.FoodStore.Modules\Alsoft.Recruitment.FoodStore.Modules.Basket.csproj", "{3CCC7EC1-4F13-47E7-8FEB-BD8333526B4D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.Entities", "Alsoft.Recruitment.FoodStore.Entities\Alsoft.Recruitment.FoodStore.Entities.csproj", "{2DB3C2D3-4BA9-430B-A03F-6441A6ED1BE6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.App", "Alsoft.Recruitment.FoodStore.App\Alsoft.Recruitment.FoodStore.App.csproj", "{0ED95C0D-3D0E-4B79-9A69-78D91714207B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.UI", "Alsoft.Recruitment.FoodStore.UI\Alsoft.Recruitment.FoodStore.UI.csproj", "{015BD4F2-4234-4F50-AC97-D0A50D91B241}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.Tools", "Alsoft.Recruitment.FoodStore.Tools\Alsoft.Recruitment.FoodStore.Tools.csproj", "{7F7D798C-D818-475F-93B2-0BDD487E0B18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountPocDemo", "Alsoft.Recruitment.FoodStore.DiscountPocDemo\DiscountPocDemo\DiscountPocDemo.csproj", "{29C5AC5E-26C1-47EC-BED3-D2EA1B7E3FD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountPocDemo", "Alsoft.Recruitment.FoodStore.DiscountPocDemo\DiscountPocDemo\DiscountPocDemo.csproj", "{29C5AC5E-26C1-47EC-BED3-D2EA1B7E3FD8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.Modules.Basket", "Modules\Basket\Alsoft.Recruitment.FoodStore.Modules.Basket.csproj", "{1ACC0E4E-E26B-49F0-966D-0F39B2557439}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alsoft.Recruitment.FoodStore.Modules.Product", "Modules\Product\Alsoft.Recruitment.FoodStore.Modules.Product\Alsoft.Recruitment.FoodStore.Modules.Product.csproj", "{BB660B9E-1BA3-4586-89F2-5E06049F0184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsoft.Recruitment.FoodStore.UI", "Alsoft.Recruitment.FoodStore.UI\Alsoft.Recruitment.FoodStore.UI\Alsoft.Recruitment.FoodStore.UI.csproj", "{EC00E1E0-3491-4AB0-8ACB-4AC07BF27281}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +37,6 @@ Global
 		{DF7722C9-CCAA-4847-BB9B-C517D2E1FDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF7722C9-CCAA-4847-BB9B-C517D2E1FDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF7722C9-CCAA-4847-BB9B-C517D2E1FDDC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CCC7EC1-4F13-47E7-8FEB-BD8333526B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CCC7EC1-4F13-47E7-8FEB-BD8333526B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CCC7EC1-4F13-47E7-8FEB-BD8333526B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CCC7EC1-4F13-47E7-8FEB-BD8333526B4D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2DB3C2D3-4BA9-430B-A03F-6441A6ED1BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2DB3C2D3-4BA9-430B-A03F-6441A6ED1BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DB3C2D3-4BA9-430B-A03F-6441A6ED1BE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,10 +45,6 @@ Global
 		{0ED95C0D-3D0E-4B79-9A69-78D91714207B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ED95C0D-3D0E-4B79-9A69-78D91714207B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ED95C0D-3D0E-4B79-9A69-78D91714207B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{015BD4F2-4234-4F50-AC97-D0A50D91B241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{015BD4F2-4234-4F50-AC97-D0A50D91B241}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{015BD4F2-4234-4F50-AC97-D0A50D91B241}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{015BD4F2-4234-4F50-AC97-D0A50D91B241}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7F7D798C-D818-475F-93B2-0BDD487E0B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7F7D798C-D818-475F-93B2-0BDD487E0B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F7D798C-D818-475F-93B2-0BDD487E0B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -59,12 +53,25 @@ Global
 		{29C5AC5E-26C1-47EC-BED3-D2EA1B7E3FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C5AC5E-26C1-47EC-BED3-D2EA1B7E3FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C5AC5E-26C1-47EC-BED3-D2EA1B7E3FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ACC0E4E-E26B-49F0-966D-0F39B2557439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ACC0E4E-E26B-49F0-966D-0F39B2557439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ACC0E4E-E26B-49F0-966D-0F39B2557439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ACC0E4E-E26B-49F0-966D-0F39B2557439}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB660B9E-1BA3-4586-89F2-5E06049F0184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB660B9E-1BA3-4586-89F2-5E06049F0184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB660B9E-1BA3-4586-89F2-5E06049F0184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB660B9E-1BA3-4586-89F2-5E06049F0184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC00E1E0-3491-4AB0-8ACB-4AC07BF27281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC00E1E0-3491-4AB0-8ACB-4AC07BF27281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC00E1E0-3491-4AB0-8ACB-4AC07BF27281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC00E1E0-3491-4AB0-8ACB-4AC07BF27281}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3CCC7EC1-4F13-47E7-8FEB-BD8333526B4D} = {2783D04C-F125-4EFC-8359-B94A8253A273}
+		{1ACC0E4E-E26B-49F0-966D-0F39B2557439} = {2783D04C-F125-4EFC-8359-B94A8253A273}
+		{BB660B9E-1BA3-4586-89F2-5E06049F0184} = {2783D04C-F125-4EFC-8359-B94A8253A273}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0C2C74A4-05A0-4314-BACE-FCF98B7F6FD6}

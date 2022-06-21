@@ -1,0 +1,184 @@
+﻿<Window x:Class="Alsoft.Recruitment.FoodStore.UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodel="clr-namespace:Alsoft.Recruitment.FoodStore.UI.ViewModel" 
+        d:DataContext="{d:DesignInstance Type=viewmodel:BasketAppViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="545" Width="1142">
+
+    <GroupBox Header="AlsoftBasket" Margin="10,-1,8,10" RenderTransformOrigin="0.5,0.5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="583*"/>
+                <ColumnDefinition Width="529*"/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox x:Name="ProductsList" 
+                  HorizontalAlignment="Left" 
+                  Height="487"
+                  VerticalAlignment="Top"
+                  Width="296" d:ItemsSource="{d:SampleData ItemCount = 5}" 
+                  ItemsSource="{Binding Products}"
+                  SelectedItem="{Binding SelectedProduct}">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <UniformGrid Columns="3" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" 
+                                     Width="{Binding ActualWidth, ElementName=ProductsList}">
+
+                            <UniformGrid.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="2"/>
+                                </Style>
+                            </UniformGrid.Resources>
+
+                            <Label Content="{Binding Name}"/>
+                            <Label Content="{Binding Price}" ContentStringFormat=" {0:C}"/>
+                            <Button 
+                                Command="{Binding DataContext.AddProductToBasket, RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}}" 
+                                CommandParameter="{Binding}">Add Item
+                            </Button>
+
+                        </UniformGrid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+
+            <GroupBox x:Name="ProductDetailsGroupBox"
+                      HorizontalAlignment="Left" 
+                      Height="157" Header="Product Details" 
+                      Margin="301,-8,0,0" 
+                      VerticalAlignment="Top" Width="281">
+
+                <ListBox x:Name="ProductDetailsList" 
+                  HorizontalAlignment="Left" 
+                  Height="93"
+                  VerticalAlignment="Bottom"
+                  Width="271" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                  ItemsSource="{Binding SelectedProduct.ProductProperties}">
+
+                    <ListBox.Style>
+                        <Style TargetType="{x:Type ListBox}" >
+                            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden" />
+                        </Style>
+                    </ListBox.Style>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+
+                            <UniformGrid Columns="2" HorizontalAlignment="Center" 
+                                     Width="{Binding ActualWidth, ElementName=ProductDetailsList}"
+                                     Height="{Binding ActualHeight, ElementName=ProductDetailsList}">
+
+                                <Label Content="{Binding Name}"/>
+                                <Label Content="{Binding Value}"/>
+
+                            </UniformGrid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+
+                </ListBox>
+            </GroupBox>
+
+            <Label x:Name="ProductPropertiesLabel" 
+                   Content="Selected Product Properties"
+                   d:Content="Selected Product Properties"
+                   HorizontalAlignment="Left" 
+                   Margin="331,27,0,0" 
+                   VerticalAlignment="Top" Height="26" Width="201" RenderTransformOrigin="0.464,0.485" FontWeight="Bold" 
+            />
+
+            <Label x:Name="SelectedProductUnitType" 
+                   Content="{Binding SelectedProduct.UnitType}"
+                   d:Content="UnitTypeLabel"
+                   HorizontalAlignment="Left" 
+                   Margin="310,10,0,0" 
+                   VerticalAlignment="Top" Height="25" Width="543" RenderTransformOrigin="0.464,0.485" Grid.ColumnSpan="2" 
+            />
+
+            <GroupBox Header="Basket Products Items" Margin="2,0,0,0" Height="220" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+                <GroupBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.215"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.496"/>
+                    </TransformGroup>
+                </GroupBox.RenderTransform>
+                <ListBox x:Name="BasketProductsList" 
+                    HorizontalAlignment="Left" 
+                    Height="191"
+                    VerticalAlignment="Top"
+                    Width="518" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                    ItemsSource="{Binding BasketProducts}">
+
+                    <ListBox.Style>
+                        <Style TargetType="{x:Type ListBox}" >
+                            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+                        </Style>
+                    </ListBox.Style>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <UniformGrid Columns="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" 
+                                Width="{Binding ActualWidth, ElementName=BasketProductsList}">
+
+                                <UniformGrid.Resources>
+                                    <Style TargetType="{x:Type Button}">
+                                        <Setter Property="Margin" Value="2"/>
+                                    </Style>
+                                </UniformGrid.Resources>
+
+                                <Label Content="{Binding Name}"/>
+                                <Label Content="{Binding Quantity}"/>
+                                <Label Content="{Binding UnitPrice}" ContentStringFormat=" {0:C}"/>
+                                <Label Content="{Binding ItemsPrice}" ContentStringFormat=" {0:C}"/>
+                                <Button 
+                                    Command="{Binding DataContext.RemoveItemFromBasket, RelativeSource={RelativeSource AncestorType=Window,Mode=FindAncestor}}" 
+                                    CommandParameter="{Binding}">Remove
+                                </Button>
+
+                            </UniformGrid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </GroupBox>
+
+            <GroupBox Grid.Column="1" HorizontalAlignment="Left" Height="257" Header="Discounts" Margin="0,230,0,0" VerticalAlignment="Top" Width="630" Grid.ColumnSpan="2">
+                <ListBox x:Name="DiscountsApplied" 
+                    HorizontalAlignment="Left" 
+                    Height="237"
+                    VerticalAlignment="Top"
+                    Width="501" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                    ItemsSource="{Binding DiscountsApplied}">
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <UniformGrid Columns="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" 
+                                Width="{Binding ActualWidth, ElementName=DiscountsApplied}">
+                                <Label Content="{Binding}"/>
+                            </UniformGrid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            </GroupBox>
+
+            <Label Content="Total" HorizontalAlignment="Left" Margin="310,179,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding BasketTotal}" ContentStringFormat=" {0:C}" HorizontalAlignment="Left" Margin="385,179,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.022,0.542"/>
+
+            <Label Content="Discount" HorizontalAlignment="Left" Margin="310,205,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding DiscountAmount}" ContentStringFormat=" {0:C}" HorizontalAlignment="Left" Margin="385,205,0,0" VerticalAlignment="Top"/>
+
+            <Label Content="Final Price" HorizontalAlignment="Left" Margin="310,230,0,0" VerticalAlignment="Top"/>
+            <Label Content="{Binding FinalPrice}" ContentStringFormat=" {0:C}" HorizontalAlignment="Left" Margin="385,230,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+    </GroupBox>
+
+
+
+</Window>

@@ -1,4 +1,5 @@
 ﻿using Alsoft.Recruitment.FoodStore.Abstractions;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -18,6 +19,7 @@ namespace Alsoft.Recruitment.FoodStore.Entities.Enumerations.UnitType
         {
         }
 
-        public virtual List<Product> Products { get; set; }
+        public override string ToString() => $"Unit Type : {Enum.GetName(typeof(UnitType), EnumerationId)}";
+        
     }
 }

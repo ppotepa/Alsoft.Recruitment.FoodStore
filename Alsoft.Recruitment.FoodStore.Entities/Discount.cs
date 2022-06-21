@@ -3,11 +3,16 @@ using Alsoft.Recruitment.FoodStore.Entities.Enumerations.DiscountType;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Alsoft.Recruitment.FoodStore.Entities
 {
     public class Discount : Entity
     {
+        public Discount()
+        {
+        }
+
         public Discount(Guid id) : base(id)
         {
         }
@@ -17,10 +22,12 @@ namespace Alsoft.Recruitment.FoodStore.Entities
         }
 
         [Required]
-        public DateTime DateFrom { get; set; }
+        [NotNull]
+        public DateTime? DateFrom { get; set; }
 
         [Required]
-        public DateTime DateTo { get; set; }
+        [NotNull]
+        public DateTime? DateTo { get; set; }
 
         [Required]
         public double DiscountPercentage { get; set; }
@@ -35,6 +42,8 @@ namespace Alsoft.Recruitment.FoodStore.Entities
         public Guid? TargetProductId { get; set; }
 
         public string Name { get; set; }
+
+        public int? DiscountQuantity { get; set; }
     }
 
 }

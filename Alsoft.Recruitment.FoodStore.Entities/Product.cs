@@ -8,6 +8,10 @@ namespace Alsoft.Recruitment.FoodStore.Entities
 {
     public class Product : Entity
     {
+        public Product()
+        {
+        }
+
         public Product(Guid id) : base(id) { }
         public Product(string id) : base(id) { }
 

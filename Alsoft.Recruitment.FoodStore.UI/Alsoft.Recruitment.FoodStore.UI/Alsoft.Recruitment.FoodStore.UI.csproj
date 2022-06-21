@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flurl" Version="3.0.6" />
+    <PackageReference Include="Flurl.Http" Version="3.2.4" />
+    <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.0.0" />
+    <PackageReference Include="System.Reactive" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Alsoft.Recruitment.FoodStore.Entities\Alsoft.Recruitment.FoodStore.Entities.csproj" />
+    <ProjectReference Include="..\..\Modules\Basket\Alsoft.Recruitment.FoodStore.Modules.Basket.csproj" />
+    <ProjectReference Include="..\..\Modules\Product\Alsoft.Recruitment.FoodStore.Modules.Product\Alsoft.Recruitment.FoodStore.Modules.Product.csproj" />
+  </ItemGroup>
+
+</Project>

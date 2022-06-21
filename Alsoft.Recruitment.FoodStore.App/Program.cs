@@ -14,6 +14,7 @@ namespace Alsoft.Recruitment.FoodStore.Api
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseIIS();
                     webBuilder.UseStartup<Startup>();
                 });
     }

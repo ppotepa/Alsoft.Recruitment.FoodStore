@@ -4,14 +4,16 @@ using Alsoft.Recruitment.FoodStore.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alsoft.Recruitment.FoodStore.DAL.Migrations
 {
     [DbContext(typeof(AlsoftFoodStoreContext))]
-    partial class AlsoftFoodStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220621013211_initialqwe")]
+    partial class initialqwe
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

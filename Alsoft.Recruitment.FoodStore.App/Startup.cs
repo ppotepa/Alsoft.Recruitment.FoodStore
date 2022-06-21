@@ -2,6 +2,8 @@ using Alsoft.Recruitment.FoodStore.Abstractions.Interfaces;
 using Alsoft.Recruitment.FoodStore.DAL;
 using Alsoft.Recruitment.FoodStore.Modules.Basket;
 using Alsoft.Recruitment.FoodStore.Modules.Basket.DependencyInjection;
+using Alsoft.Recruitment.FoodStore.Modules.Product;
+using Alsoft.Recruitment.FoodStore.Modules.Product.DependencyInjection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -36,21 +38,23 @@ namespace Alsoft.Recruitment.FoodStore.Api
 
             List<Type> transientTypes = allAvailableTypes.Where(type => type.GetInterfaces().Contains(typeof(ITransientServiceMarker))).ToList();
 
-            services.AddControllers();
             services.AddDbContext<AlsoftFoodStoreContext>(
                 options => options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
             );
-                
 
             transientTypes.ForEach(type => services.AddTransient(type));
 
+
+            services.AddMvc().AddNewtonsoftJson(o => o.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddMediatR
             (
-                typeof(IBasketModuleMarker) 
+                typeof(IBasketModuleMarker),
+                typeof(IProductModuleMarker)
             );
 
             services.AddBasketModule();
-
+            services.AddProductsModule();
+          
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Alsoft.Recruitment.FoodStore.Api", Version = "v1" });
@@ -78,6 +82,7 @@ namespace Alsoft.Recruitment.FoodStore.Api
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

@@ -5,6 +5,10 @@ namespace Alsoft.Recruitment.FoodStore.Entities
 {
     public class DiscountProduct : Entity
     {
+        public DiscountProduct()
+        {
+        }
+
         public DiscountProduct(Guid id) : base(id)
         {
         }

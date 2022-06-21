@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace Alsoft.Recruitment.FoodStore.Abstractions
 {
@@ -24,9 +25,6 @@ namespace Alsoft.Recruitment.FoodStore.Abstractions
                 _enumerationName = value;
             }
         }
-
-        [NotMapped]
-        public Type EnumerationType => Type.GetType("Alsoft.Recruitment.FoodStore.Entities.Enumerations.UnitType");
 
         public Guid TypeId
         {
