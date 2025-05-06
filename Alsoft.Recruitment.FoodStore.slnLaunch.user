@@ -8,7 +8,7 @@
         "DebugTarget": "Alsoft.Recruitment.FoodStore.App"
       },
       {
-        "Path": "Alsoft.Recruitment.FoodStore.UI\\Alsoft.Recruitment.FoodStore.UI\\Alsoft.Recruitment.FoodStore.UI.csproj",
+        "Path": "Alsoft.Recruitment.FoodStore.UI\\Alsoft.Recruitment.FoodStore.UI.csproj",
         "Action": "Start",
         "DebugTarget": "Alsoft.Recruitment.FoodStore.UI"
       }

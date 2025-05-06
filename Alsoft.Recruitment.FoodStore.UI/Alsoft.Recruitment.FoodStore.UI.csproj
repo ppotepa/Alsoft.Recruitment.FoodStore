@@ -17,9 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Alsoft.Recruitment.FoodStore.Entities\Alsoft.Recruitment.FoodStore.Entities.csproj" />
-    <ProjectReference Include="..\..\Modules\Basket\Alsoft.Recruitment.FoodStore.Modules.Basket.csproj" />
-    <ProjectReference Include="..\..\Modules\Product\Alsoft.Recruitment.FoodStore.Modules.Product.csproj" />
+    <ProjectReference Include="..\Modules\Basket\Alsoft.Recruitment.FoodStore.Modules.Basket.csproj" />
+    <ProjectReference Include="..\Modules\Product\Alsoft.Recruitment.FoodStore.Modules.Product\Alsoft.Recruitment.FoodStore.Modules.Product.csproj" />
   </ItemGroup>
 
   <ItemGroup>
