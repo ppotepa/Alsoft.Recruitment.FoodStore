@@ -34,38 +34,7 @@ This project was **solely done for the purpose of recruitment**.
 - **Discount PoC**: A standalone console demo to illustrate configurable discount rules.
 - **Web API**: RESTful endpoints for product browsing, order creation, and discount evaluation.
 
-## Code Structure
 
-```
-/           # Solution root
-├── Alsoft.Recruitment.FoodStore.sln   # .NET solution file
-├── .gitignore                         # Git ignore rules
-├── .gitattributes                     # Git attributes
-
-├── Alsoft.Recruitment.FoodStore.Abstractions  # Service and repository interface definitions
-│   └── ... interfaces (.cs)
-
-├── Alsoft.Recruitment.FoodStore.Entities      # Domain entity classes (Product, Order, etc.)
-│   └── ... models (.cs)
-
-├── Alsoft.Recruitment.FoodStore.DAL           # Data access layer (EF Core or in-memory implementations)
-│   └── ... repository implementations
-
-├── Alsoft.Recruitment.FoodStore.App           # Business logic / application services
-│   └── ... service implementations
-
-├── Alsoft.Recruitment.FoodStore.DiscountPocDemo  # Console demo for discount engine proof-of-concept
-│   └── Program.cs
-
-├── Alsoft.Recruitment.FoodStore.Tools         # Utility classes (mappers, extensions, logging)
-│   └── ... helpers (.cs)
-
-├── Alsoft.Recruitment.FoodStore.UI            # ASP.NET Core Web API project exposing endpoints
-│   └── Controllers, Program.cs, Startup.cs
-
-└── Modules                                    # Dependency Injection modules to wire up services
-    └── ... module registration (.cs)
-```
 
 ## Prerequisites
 
