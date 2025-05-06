@@ -17,7 +17,7 @@ A C# sample application demonstrating a layered architecture for a Food Store sy
 ## About
 
 The FoodStore project was built to showcase clean architecture principles in a .NET environment, using
-- SOLID and Domain-Driven Design
+- SOLID and basic Domain-Driven Design
 - Repository and Service layers
 - Dependency Injection modules
 - A proof-of-concept discount engine
@@ -27,7 +27,7 @@ This project was **solely done for the purpose of recruitment**.
 
 ## Features
 
-- **Domain Models**: Strongly-typed entities representing products, orders, discounts, and more.
+- **basic Domain Models**: Strongly-typed entities representing products, orders, discounts, and more.
 - **Repository Pattern**: Abstracted data access via interfaces, allowing for easy swapping of data stores.
 - **Dependency Injection**: Modular registration of services and repositories for maintainability.
 - **Discount PoC**: A standalone console demo to illustrate configurable discount rules.
