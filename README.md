@@ -74,23 +74,8 @@ This project was **solely done for the purpose of recruitment**.
 
 ## Setup & Run
 
-1. **Clone and build**
-   ```bash
-   git clone https://github.com/ppotepa/Alsoft.Recruitment.FoodStore.git
-   cd Alsoft.Recruitment.FoodStore
-   dotnet build
-   ```
-
-2. **Run the Web API**
-   ```bash
-   dotnet run --project Alsoft.Recruitment.FoodStore.UI/Alsoft.Recruitment.FoodStore.UI.csproj
-   ```
-   The API will be available at `https://localhost:5001` (or port configured in launch settings).
-
-3. **Run the Discount PoC Demo** (optional)
-   ```bash
-   dotnet run --project Alsoft.Recruitment.FoodStore.DiscountPocDemo/DiscountPocDemo.csproj
-   ```
+![image](https://github.com/user-attachments/assets/530fde18-2c5b-40a3-b129-d238e740864f)
+Please make sure you set both starting projects as shown above.
 
 ## Testing
 
