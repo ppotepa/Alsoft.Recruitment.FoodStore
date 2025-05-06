@@ -33,8 +33,6 @@ This project was **solely done for the purpose of recruitment**.
 - **Discount PoC**: A standalone console demo to illustrate configurable discount rules.
 - **Web API**: RESTful endpoints for product browsing, order creation, and discount evaluation.
 
-
-
 ## Prerequisites
 
 - [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
@@ -44,6 +42,8 @@ This project was **solely done for the purpose of recruitment**.
 
 ![image](https://github.com/user-attachments/assets/530fde18-2c5b-40a3-b129-d238e740864f)
 Please make sure you set both starting projects as shown above.
+
+OR JUST USE START.BAT
 
 ## Testing
 
