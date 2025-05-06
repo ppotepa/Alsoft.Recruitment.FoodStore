@@ -3,6 +3,7 @@ using Alsoft.Recruitment.FoodStore.Modules.Basket.Logic.Models;
 using Alsoft.Recruitment.FoodStore.Modules.Basket.Requests.CalculateBasketItem;
 using Alsoft.Recruitment.FoodStore.Modules.Product.Requests.GetAllProducts;
 using Flurl.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.ObjectModel;
@@ -18,11 +19,17 @@ namespace Alsoft.Recruitment.FoodStore.UI.ViewModel
         private decimal discountAmount = 0;
         private decimal finalPrice = 0;
 
-        public BasketAppViewModel()
-        {
+        private readonly string _getAllProductsUrl;
+        private readonly string _calculateBasketTotalUrl;
+
+        public BasketAppViewModel(IConfiguration configuration)
+        {            
+            _getAllProductsUrl = configuration["ApiUrls:GetAllProducts"];
+            _calculateBasketTotalUrl = configuration["ApiUrls:CalculateBasketTotal"];
+
             Products = new ObservableCollection<Product>
             (
-                "https://localhost:44349/api/Products/GetAllProducts"
+                "https://localhost:5001/api/Products/GetAllProducts"
                             .GetJsonAsync<GetAllProductsRequestResult>()
                             .GetAwaiter()
                             .GetResult()
@@ -34,6 +41,7 @@ namespace Alsoft.Recruitment.FoodStore.UI.ViewModel
             DiscountsApplied = new ObservableCollection<DiscountApplied>();
             AddProductToBasket = new RelayCommand<Product?>(DoAddProductToBasket);
             RemoveItemFromBasket = new RelayCommand<BasketProduct?>(DoRemoveItemFromBasket);
+
             SelectedProduct = Products.First();
         }
 
@@ -84,7 +92,7 @@ namespace Alsoft.Recruitment.FoodStore.UI.ViewModel
                 ? new[] { product.Id }
                 : BasketProducts.SelectMany(p => Enumerable.Repeat(p.Id, p.Quantity)).Concat(new[] { product.Id }).ToArray();
 
-            CalculateBasketRequestResult? response = "https://localhost:44349/api/Basket/CalculateBasketTotal"
+            CalculateBasketRequestResult? response = "https://localhost:5001/api/Basket/CalculateBasketTotal"
                         .SendJsonAsync(HttpMethod.Get, basketProductIds)
                         .GetAwaiter()
                         .GetResult()

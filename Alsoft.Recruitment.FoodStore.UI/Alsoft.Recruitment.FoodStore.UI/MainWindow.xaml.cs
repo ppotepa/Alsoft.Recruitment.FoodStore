@@ -1,6 +1,4 @@
-﻿using Alsoft.Recruitment.FoodStore.UI.ViewModel;
-using System.Threading;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Alsoft.Recruitment.FoodStore.UI
 {

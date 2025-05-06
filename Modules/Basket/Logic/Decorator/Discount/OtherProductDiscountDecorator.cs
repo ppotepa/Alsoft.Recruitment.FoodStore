@@ -12,33 +12,25 @@ namespace Alsoft.Recruitment.FoodStore.Modules.Basket.Logic.Decorator.Discount
         {
             DateTime now = DateTime.Now;
 
-            if (discount.DateFrom < now && discount.DateTo > now)
-            {
-                if (discount.DiscountQuantity is not null)
-                {
-                    var firstProduct = basket.Products.First(line => line.Product.Id == discount.DiscountProducts.First().ProductId);
-                    int maxDiscountedQuantity = firstProduct.Quantity / (int)discount.DiscountQuantity;                      
-                    
+            if (discount.DateFrom >= now || discount.DateTo <= now || discount.DiscountQuantity is null)
+                return;
 
-                    BasketProductLine line = basket.Products.FirstOrDefault(line => line.Product.Id == discount.TargetProductId);
-                 
-                    if (line is not null)
-                    {
-                        line.DiscountsApplied.Add(new DiscountApplied
-                        {
-                            DiscountedQuantity = maxDiscountedQuantity > line.Quantity ? line.Quantity : maxDiscountedQuantity,
-                            DiscountName = discount.Name, 
-                            DiscountPercentage = discount.DiscountPercentage,
-                            DiscountId = discount.Id,
-                            OriginalUnitPrice = line.Product.Price,
-                            ProductId = line.Product.Id,
-                        });
-                    }
-                }
-                else
+            var firstProduct = basket.Products.First(line => line.Product.Id == discount.DiscountProducts.First().ProductId);
+            int maxDiscountedQuantity = firstProduct.Quantity / (int)discount.DiscountQuantity;
+
+            BasketProductLine line = basket.Products.FirstOrDefault(line => line.Product.Id == discount.TargetProductId);
+
+            if (line is not null)
+            {
+                line.DiscountsApplied.Add(new DiscountApplied
                 {
-                    //empty-block 
-                }
+                    DiscountedQuantity = Math.Min(maxDiscountedQuantity, line.Quantity),
+                    DiscountName = discount.Name,
+                    DiscountPercentage = discount.DiscountPercentage,
+                    DiscountId = discount.Id,
+                    OriginalUnitPrice = line.Product.Price,
+                    ProductId = line.Product.Id,
+                });
             }
         }
     }

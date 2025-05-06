@@ -7,6 +7,7 @@ using Alsoft.Recruitment.FoodStore.Modules.Product.DependencyInjection;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,9 +39,11 @@ namespace Alsoft.Recruitment.FoodStore.Api
 
             List<Type> transientTypes = allAvailableTypes.Where(type => type.GetInterfaces().Contains(typeof(ITransientServiceMarker))).ToList();
 
-            services.AddDbContext<AlsoftFoodStoreContext>(
-                options => options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
-            );
+            services.AddDbContext<AlsoftFoodStoreContext>(options =>
+            {
+                options.UseInMemoryDatabase(nameof(AlsoftFoodStoreContext));
+                options.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
+            });
 
             transientTypes.ForEach(type => services.AddTransient(type));
 
@@ -54,12 +57,12 @@ namespace Alsoft.Recruitment.FoodStore.Api
 
             services.AddBasketModule();
             services.AddProductsModule();
-          
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Alsoft.Recruitment.FoodStore.Api", Version = "v1" });
             });
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,7 +76,7 @@ namespace Alsoft.Recruitment.FoodStore.Api
             }
 
             app.UseHttpsRedirection();
-           
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -82,6 +85,10 @@ namespace Alsoft.Recruitment.FoodStore.Api
             {
                 endpoints.MapControllers();
             });
+
+            using var scope = app.ApplicationServices.CreateScope();
+                var context = scope.ServiceProvider.GetRequiredService<AlsoftFoodStoreContext>();
+            context.Database.EnsureCreated();
 
         }
     }
