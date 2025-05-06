@@ -8,7 +8,6 @@ A C# sample application demonstrating a layered architecture for a Food Store sy
 
 - [About](#about)
 - [Features](#features)
-- [Code Structure](#code-structure)
 - [Prerequisites](#prerequisites)
 - [Setup & Run](#setup--run)
 - [Testing](#testing)
